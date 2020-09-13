@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,12 +26,13 @@ namespace GifOptimizer
             openFileDialog.Title = "Select a GIF File";
 
             // Show th Dialog.
-            // If the user clicked OK in the dialogue and
-            // a .GIF file was selected, open it.
+            // If the user clicked OK in the dialogue and a .GIF file was selected, open it.
+            
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                textBoxPath.Text = openFileDialog.FileName;
                 // show the gif image in the picture box
-                using(var fs = new System.IO.FileStream(openFileDialog.FileName, System.IO.FileMode.Open,System.IO.FileAccess.Read))
+                using (var fs = new System.IO.FileStream(openFileDialog.FileName, System.IO.FileMode.Open,System.IO.FileAccess.Read))
                 {
                     var ms = new System.IO.MemoryStream();
                     fs.CopyTo(ms);
@@ -63,6 +65,65 @@ namespace GifOptimizer
             Properties.Settings.Default.Height = Convert.ToInt32(textBoxHeight.Text);
 
             Properties.Settings.Default.Save();
+        }
+
+        // Optimization method
+        private void Optimize()
+        {
+            string ExeToUse = string.Empty;
+
+            if (Environment.Is64BitOperatingSystem == true)
+                ExeToUse = "gifopt64.exe";
+            else
+                ExeToUse = "gifopt32.exe";
+
+            ProcessStartInfo processStartInfo = new ProcessStartInfo();
+            processStartInfo.CreateNoWindow = true;
+            processStartInfo.UseShellExecute = false;
+            processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processStartInfo.FileName = ExeToUse;
+
+            string CompressValue = comboBoxCompressLevel.Text;
+
+            StringBuilder ArgsString = new StringBuilder();
+
+            ArgsString.Append(" -" + CompressValue + " ");
+
+            // Append optional parameters
+            if (numericUpDownLossy.Value > 0)
+                ArgsString.Append(" --lossy=" + numericUpDownLossy.Value.ToString());
+
+            if (numericUpDownColor.Value > 0)
+                ArgsString.Append(" --colors=" + numericUpDownColor.Value.ToString());
+
+            if (textBoxHeight.Text != "0" && textBoxWidth.Text != "0")
+                ArgsString.Append(" --resize-fit " + textBoxWidth.Text + "X" + textBoxHeight.Text + " ");
+
+            ArgsString.Append("\"" + textBoxPath.Text + "\"");
+            ArgsString.Append(" -o" + "\"" + "temp.gif" + "\"");
+
+            processStartInfo.Arguments = ArgsString.ToString();
+
+            // Start the execution
+            Process.Start(processStartInfo).WaitForExit();
+
+            // show the gif image in the picture box
+            using (var fs = new System.IO.FileStream("temp.gif", System.IO.FileMode.Open, System.IO.FileAccess.Read))
+            {
+                var ms = new System.IO.MemoryStream();
+                fs.CopyTo(ms);
+                ms.Position = 0;
+                if (pictureBoxTarget.Image != null)
+                    pictureBoxTarget.Image.Dispose();
+                pictureBoxTarget.Image = Image.FromStream(ms);
+            }
+
+
+        }
+
+        private void buttonOptimize_Click(object sender, EventArgs e)
+        {
+            Optimize();
         }
     }
 }

@@ -45,6 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonBrowse = new System.Windows.Forms.Button();
+            this.textBoxPath = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLossy)).BeginInit();
@@ -56,9 +57,10 @@
             // 
             this.pictureBoxSource.BackColor = System.Drawing.Color.White;
             this.pictureBoxSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSource.Location = new System.Drawing.Point(38, 72);
+            this.pictureBoxSource.Location = new System.Drawing.Point(38, 45);
             this.pictureBoxSource.Name = "pictureBoxSource";
             this.pictureBoxSource.Size = new System.Drawing.Size(396, 372);
+            this.pictureBoxSource.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSource.TabIndex = 0;
             this.pictureBoxSource.TabStop = false;
             // 
@@ -66,9 +68,10 @@
             // 
             this.pictureBoxTarget.BackColor = System.Drawing.Color.White;
             this.pictureBoxTarget.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxTarget.Location = new System.Drawing.Point(531, 72);
+            this.pictureBoxTarget.Location = new System.Drawing.Point(531, 45);
             this.pictureBoxTarget.Name = "pictureBoxTarget";
             this.pictureBoxTarget.Size = new System.Drawing.Size(396, 372);
+            this.pictureBoxTarget.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxTarget.TabIndex = 1;
             this.pictureBoxTarget.TabStop = false;
             // 
@@ -76,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 46);
+            this.label1.Location = new System.Drawing.Point(35, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 18);
             this.label1.TabIndex = 2;
@@ -86,7 +89,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(528, 46);
+            this.label2.Location = new System.Drawing.Point(528, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 18);
             this.label2.TabIndex = 3;
@@ -144,21 +147,22 @@
             this.groupBox1.Controls.Add(this.numericUpDownLossy);
             this.groupBox1.Controls.Add(this.textBoxHeight);
             this.groupBox1.Controls.Add(this.textBoxWidth);
-            this.groupBox1.Location = new System.Drawing.Point(38, 495);
+            this.groupBox1.Location = new System.Drawing.Point(38, 516);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(889, 152);
+            this.groupBox1.Size = new System.Drawing.Size(889, 130);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
             // buttonOptimize
             // 
-            this.buttonOptimize.Location = new System.Drawing.Point(187, 450);
+            this.buttonOptimize.Location = new System.Drawing.Point(269, 471);
             this.buttonOptimize.Name = "buttonOptimize";
             this.buttonOptimize.Size = new System.Drawing.Size(165, 39);
             this.buttonOptimize.TabIndex = 10;
             this.buttonOptimize.Text = "Optimize";
             this.buttonOptimize.UseVisualStyleBackColor = true;
+            this.buttonOptimize.Click += new System.EventHandler(this.buttonOptimize_Click);
             // 
             // label3
             // 
@@ -207,7 +211,7 @@
             // 
             // buttonBrowse
             // 
-            this.buttonBrowse.Location = new System.Drawing.Point(346, 44);
+            this.buttonBrowse.Location = new System.Drawing.Point(346, 17);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(88, 25);
             this.buttonBrowse.TabIndex = 11;
@@ -215,11 +219,19 @@
             this.buttonBrowse.UseVisualStyleBackColor = true;
             this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
+            // textBoxPath
+            // 
+            this.textBoxPath.Location = new System.Drawing.Point(38, 423);
+            this.textBoxPath.Name = "textBoxPath";
+            this.textBoxPath.Size = new System.Drawing.Size(396, 22);
+            this.textBoxPath.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 691);
+            this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.buttonOptimize);
             this.Controls.Add(this.groupBox1);
@@ -263,6 +275,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonOptimize;
         private System.Windows.Forms.Button buttonBrowse;
+        private System.Windows.Forms.TextBox textBoxPath;
     }
 }
 
