@@ -46,6 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.textBoxPath = new System.Windows.Forms.TextBox();
+            this.buttonSaveResult = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLossy)).BeginInit();
@@ -156,9 +157,9 @@
             // 
             // buttonOptimize
             // 
-            this.buttonOptimize.Location = new System.Drawing.Point(269, 471);
+            this.buttonOptimize.Location = new System.Drawing.Point(311, 471);
             this.buttonOptimize.Name = "buttonOptimize";
-            this.buttonOptimize.Size = new System.Drawing.Size(165, 39);
+            this.buttonOptimize.Size = new System.Drawing.Size(123, 39);
             this.buttonOptimize.TabIndex = 10;
             this.buttonOptimize.Text = "Optimize";
             this.buttonOptimize.UseVisualStyleBackColor = true;
@@ -226,11 +227,22 @@
             this.textBoxPath.Size = new System.Drawing.Size(396, 22);
             this.textBoxPath.TabIndex = 12;
             // 
+            // buttonSaveResult
+            // 
+            this.buttonSaveResult.Location = new System.Drawing.Point(804, 471);
+            this.buttonSaveResult.Name = "buttonSaveResult";
+            this.buttonSaveResult.Size = new System.Drawing.Size(123, 39);
+            this.buttonSaveResult.TabIndex = 13;
+            this.buttonSaveResult.Text = "Save Result";
+            this.buttonSaveResult.UseVisualStyleBackColor = true;
+            this.buttonSaveResult.Click += new System.EventHandler(this.buttonSaveResult_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 691);
+            this.Controls.Add(this.buttonSaveResult);
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.buttonOptimize);
@@ -276,6 +288,7 @@
         private System.Windows.Forms.Button buttonOptimize;
         private System.Windows.Forms.Button buttonBrowse;
         private System.Windows.Forms.TextBox textBoxPath;
+        private System.Windows.Forms.Button buttonSaveResult;
     }
 }
 
