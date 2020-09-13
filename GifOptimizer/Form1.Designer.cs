@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxSource = new System.Windows.Forms.PictureBox();
-            this.pictureBoxTarget = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxCompressLevel = new System.Windows.Forms.ComboBox();
@@ -38,43 +37,23 @@
             this.textBoxHeight = new System.Windows.Forms.TextBox();
             this.numericUpDownColor = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonOptimize = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.buttonBrowse = new System.Windows.Forms.Button();
             this.textBoxPath = new System.Windows.Forms.TextBox();
             this.buttonSaveResult = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).BeginInit();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.buttonOptimize = new System.Windows.Forms.Button();
+            this.pictureBoxTarget = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSource = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLossy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColor)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBoxSource
-            // 
-            this.pictureBoxSource.BackColor = System.Drawing.Color.White;
-            this.pictureBoxSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSource.Location = new System.Drawing.Point(38, 45);
-            this.pictureBoxSource.Name = "pictureBoxSource";
-            this.pictureBoxSource.Size = new System.Drawing.Size(396, 372);
-            this.pictureBoxSource.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxSource.TabIndex = 0;
-            this.pictureBoxSource.TabStop = false;
-            // 
-            // pictureBoxTarget
-            // 
-            this.pictureBoxTarget.BackColor = System.Drawing.Color.White;
-            this.pictureBoxTarget.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxTarget.Location = new System.Drawing.Point(531, 45);
-            this.pictureBoxTarget.Name = "pictureBoxTarget";
-            this.pictureBoxTarget.Size = new System.Drawing.Size(396, 372);
-            this.pictureBoxTarget.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxTarget.TabIndex = 1;
-            this.pictureBoxTarget.TabStop = false;
             // 
             // label1
             // 
@@ -155,16 +134,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // buttonOptimize
-            // 
-            this.buttonOptimize.Location = new System.Drawing.Point(311, 471);
-            this.buttonOptimize.Name = "buttonOptimize";
-            this.buttonOptimize.Size = new System.Drawing.Size(123, 39);
-            this.buttonOptimize.TabIndex = 10;
-            this.buttonOptimize.Text = "Optimize";
-            this.buttonOptimize.UseVisualStyleBackColor = true;
-            this.buttonOptimize.Click += new System.EventHandler(this.buttonOptimize_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -210,16 +179,6 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Height:";
             // 
-            // buttonBrowse
-            // 
-            this.buttonBrowse.Location = new System.Drawing.Point(346, 17);
-            this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(88, 25);
-            this.buttonBrowse.TabIndex = 11;
-            this.buttonBrowse.Text = "Browse";
-            this.buttonBrowse.UseVisualStyleBackColor = true;
-            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
-            // 
             // textBoxPath
             // 
             this.textBoxPath.Location = new System.Drawing.Point(38, 423);
@@ -229,19 +188,68 @@
             // 
             // buttonSaveResult
             // 
+            this.buttonSaveResult.Image = global::GifOptimizer.Properties.Resources.output_onlinepngtools__2_;
+            this.buttonSaveResult.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSaveResult.Location = new System.Drawing.Point(804, 471);
             this.buttonSaveResult.Name = "buttonSaveResult";
             this.buttonSaveResult.Size = new System.Drawing.Size(123, 39);
             this.buttonSaveResult.TabIndex = 13;
             this.buttonSaveResult.Text = "Save Result";
+            this.buttonSaveResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSaveResult.UseVisualStyleBackColor = true;
             this.buttonSaveResult.Click += new System.EventHandler(this.buttonSaveResult_Click);
+            // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.Image = global::GifOptimizer.Properties.Resources.output_onlinepngtools__1_;
+            this.buttonBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonBrowse.Location = new System.Drawing.Point(311, 12);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(123, 30);
+            this.buttonBrowse.TabIndex = 11;
+            this.buttonBrowse.Text = "Browse";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
+            // 
+            // buttonOptimize
+            // 
+            this.buttonOptimize.Image = global::GifOptimizer.Properties.Resources.output_onlinepngtools;
+            this.buttonOptimize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOptimize.Location = new System.Drawing.Point(311, 471);
+            this.buttonOptimize.Name = "buttonOptimize";
+            this.buttonOptimize.Size = new System.Drawing.Size(123, 39);
+            this.buttonOptimize.TabIndex = 10;
+            this.buttonOptimize.Text = "Optimize";
+            this.buttonOptimize.UseVisualStyleBackColor = true;
+            this.buttonOptimize.Click += new System.EventHandler(this.buttonOptimize_Click);
+            // 
+            // pictureBoxTarget
+            // 
+            this.pictureBoxTarget.BackColor = System.Drawing.Color.White;
+            this.pictureBoxTarget.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxTarget.Location = new System.Drawing.Point(531, 45);
+            this.pictureBoxTarget.Name = "pictureBoxTarget";
+            this.pictureBoxTarget.Size = new System.Drawing.Size(396, 372);
+            this.pictureBoxTarget.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTarget.TabIndex = 1;
+            this.pictureBoxTarget.TabStop = false;
+            // 
+            // pictureBoxSource
+            // 
+            this.pictureBoxSource.BackColor = System.Drawing.Color.White;
+            this.pictureBoxSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSource.Location = new System.Drawing.Point(38, 45);
+            this.pictureBoxSource.Name = "pictureBoxSource";
+            this.pictureBoxSource.Size = new System.Drawing.Size(396, 372);
+            this.pictureBoxSource.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSource.TabIndex = 0;
+            this.pictureBoxSource.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 691);
+            this.ClientSize = new System.Drawing.Size(956, 683);
             this.Controls.Add(this.buttonSaveResult);
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.buttonBrowse);
@@ -251,18 +259,20 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxTarget);
             this.Controls.Add(this.pictureBoxSource);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GIF Optimizer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLossy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColor)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTarget)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
