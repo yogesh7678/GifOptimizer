@@ -132,9 +132,10 @@ namespace GifOptimizer
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             DialogResult dialogResult = folderBrowserDialog.ShowDialog();
 
+            //save the file with default name, with overwrite set to true
             if(dialogResult == DialogResult.OK)
             {
-                File.Copy("temp.gif", folderBrowserDialog.SelectedPath + "\\Optimized.gif");
+                File.Copy("temp.gif", folderBrowserDialog.SelectedPath + "\\Optimized.gif", true);
             }
         }
     }
